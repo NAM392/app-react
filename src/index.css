@@ -1,0 +1,35 @@
+
+
+.footerBK{
+background-color: #2b0200;
+color: #ffffff;
+
+}
+
+body{
+  color: #502314;
+  background-color: #f5e9db;
+}
+
+.botonBK{
+  color:white;
+  background-color: #d62300;
+}
+
+.linkBK{
+  color: #502314 !important;
+  font-weight: bold;
+}
+
+.fondoMiBK{
+  background-color: #2b0200;
+  color: #ffffff;
+}
+
+.colorBK{
+ color: #502314 !important;
+}
+
+.fondoBK2{
+    background-color: #f5e9db;
+}
