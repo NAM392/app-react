@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, useRoutes} from 'react-router-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -16,6 +16,9 @@ import RenderizadoListas from './assets/Clase3/RenderizadoListas.jsx'
 import Header from './assets/Clase4/Header.jsx';
 import Footer from './assets/Clase4/Footer.jsx';
 import Principal from './assets/Clase4/Principal.jsx';
+import MiBK from './assets/Clase4/MiBK.jsx';
+import Productos from './assets/Clase4/Productos.jsx';
+import Item from './assets/Clase4/Item.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +27,28 @@ function App() {
 
     visible ? setVisible(false) : setVisible(true);
   }
+
+  
+/*  
+Equivalente a lo que se hizo con Routes y Route, pero con useRoutes, 
+que es un hook que nos permite definir las rutas de manera más sencilla y clara,
+ sin necesidad de anidar los componentes Route dentro de Routes.
+
+const routes = useRoutes([
+    { path: '/', element: <Principal/> },
+    { path: '/mi-bk', element: <MiBK isLoggedIn={true} /> },
+    { path: '/productos', element: <Productos/> }
+
+  ])
+
+  return (
+      <>
+          <Header/> 
+          {routes}
+          <Footer/> 
+      </>
+  ); */
+
   return (
     <>
 
@@ -65,11 +90,19 @@ function App() {
 
 {/*     {<RenderizacionCondicional isLoggedIn={false} />} */}
 
-{/*     {<RenderizadoListas/>} */}
+{/*     {<RenderizadoListas/>} Clase3 */}
 
+
+      
 
       <Header/>
-      <Principal/>
+      <Routes>  
+        <Route path='/' element={<Principal/>}/> 
+        <Route path='/mi-bk' element={<MiBK isLoggedIn={true} />}/>  {/*condicion para probar navigate*/}
+        <Route path='/categoria/:id' element={<Productos/>}/> {/*ruta dinamica para mostrar productos por categoria*/}
+        <Route path='/productos' element={<Productos/>}/> 
+        <Route path='/item/:id' element={<Item/>}/> {/*ruta dinamica para mostrar detalle del producto*/}
+      </Routes>
       <Footer/>
 
     </>

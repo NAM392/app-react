@@ -1,0 +1,63 @@
+[
+        {
+            "id": 1, 
+            "nombre": "Whooper Vegetal", 
+            "precio": 10500,
+            "categoria": "vegetal",
+            "descripcion": "Medallón a base de plantas a la parrilla, pan, mayonesa, ketchup, cebolla, tomate, pepinos y lechuga.",
+            "imagen": "https://cdn.sanity.io/images/czqk28jt/prod_bk_ar/d3d53048ea6cb375dd0cb3fb28ae385d750fe276-2000x1333.png?w=320&q=40&fit=max&auto=format",
+            "vegan":true
+
+        },
+         {
+            "id": 2, 
+            "nombre": "King Vegetal Guacamole", 
+            "precio": 17000,
+            "categoria": "vegetal",
+            "descripcion": "Medallón crispy a base de plantas, lechuga, mayonesa, guacamole y pan.",
+            "imagen": "https://cdn.sanity.io/images/czqk28jt/prod_bk_ar/dc239a48063eb80368c2e8863b987d55dd27c681-2000x1333.png?w=320&q=40&fit=max&auto=format",
+            "vegan":true
+            
+        },
+         {
+            "id": 3, 
+            "nombre": "King Mix Shot", 
+            "precio": 19000,
+            "categoria": "postre",
+            "descripcion": "",
+            "imagen": "https://cdn.sanity.io/images/czqk28jt/prod_bk_ar/9bb1f3024aac797a1e1e843b0b90347b0514ffa0-2000x1333.png?w=320&q=40&fit=max&auto=format",
+            "vegan":false
+            
+        },
+         {
+            "id": 4, 
+            "nombre": "Brownissimo", 
+            "precio": 11000,
+            "categoria": "postre",
+            "descripcion": "Porción de Brownie con helado y salsa de chocolate.",
+            "imagen": "https://cdn.sanity.io/images/czqk28jt/prod_bk_ar/80d4e08b0ad144e4b53d20f48992b12a54ef1a4a-2000x1333.png?w=320&q=40&fit=max&auto=format",
+            "vegan":false
+            
+        },
+         {
+            "id": 5, 
+            "nombre": "Cerveza Budweiser", 
+            "precio": 11000,
+            "categoria": "bebida",
+            "descripcion": "Lata de cervaza Budweiser de 410 ml.",
+            "imagen": "https://cdn.sanity.io/images/czqk28jt/prod_bk_ar/4fd57916a37fe2972659070c7516dce5d7a1db8e-2000x1333.png?w=320&q=40&fit=max&auto=format",
+            "vegan":true
+            
+        },
+         {
+            "id": 6, 
+            "nombre": "Aros de Cebolla", 
+            "precio": 11000,
+            "categoria": "snack",
+            "descripcion": "Aros de Cebolla King",
+            "imagen": "https://cdn.sanity.io/images/czqk28jt/prod_bk_ar/2b0c562b7228b10d21f8a87c2452229fd9225b16-870x570.png?w=320&q=40&fit=max&auto=format",
+            "vegan":true
+            
+        }
+
+    ]

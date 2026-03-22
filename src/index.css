@@ -19,11 +19,12 @@ body{
 .linkBK{
   color: #502314 !important;
   font-weight: bold;
+  text-decoration: none !important;
 }
 
 .fondoMiBK{
   background-color: #2b0200;
-  color: #ffffff;
+  color: #f5e9db;
 }
 
 .colorBK{
