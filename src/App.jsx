@@ -19,92 +19,31 @@ import Principal from './assets/Clase4/Principal.jsx';
 import MiBK from './assets/Clase4/MiBK.jsx';
 import Productos from './assets/Clase4/Productos.jsx';
 import Item from './assets/Clase4/Item.jsx';
+import Layout from './assets/Clase5/Layout.jsx';
+import HOC from './assets/Clase5/HOC.jsx';
+import ThemeContextProvider from './assets/Clase5/context/ThemeContext.jsx';
+import CartContextProvider, { CartContext } from './assets/Clase5/context/CartContext.jsx';
+import Carrito from './assets/Clase5/Carrito.jsx';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [visible, setVisible] = useState(true);
-  const desmontar = ()=>{
-
-    visible ? setVisible(false) : setVisible(true);
-  }
-
-  
-/*  
-Equivalente a lo que se hizo con Routes y Route, pero con useRoutes, 
-que es un hook que nos permite definir las rutas de manera más sencilla y clara,
- sin necesidad de anidar los componentes Route dentro de Routes.
-
-const routes = useRoutes([
-    { path: '/', element: <Principal/> },
-    { path: '/mi-bk', element: <MiBK isLoggedIn={true} /> },
-    { path: '/productos', element: <Productos/> }
-
-  ])
-
-  return (
-      <>
-          <Header/> 
-          {routes}
-          <Footer/> 
-      </>
-  ); */
-
-  return (
+  return(
     <>
+    <CartContextProvider>
+      <ThemeContextProvider>
+        <Header/>
+        <Routes>  
+          <Route path='/' element={<Principal/>}/> 
+          <Route path='/mi-bk' element={<MiBK isLoggedIn={true} />}/>  {/*condicion para probar navigate*/}
+          <Route path='/categoria/:id' element={<Productos/>}/> {/*ruta dinamica para mostrar productos por categoria*/}
+          <Route path='/productos' element={<Productos/>}/> 
+          <Route path='/item/:id' element={<Item/>}/> {/*ruta dinamica para mostrar detalle del producto*/}
+          <Route path='/carrito' element={<Carrito/>}/> {/*ruta para mostrar el carrito de compras*/}
+        </Routes>
+        <Footer/>
 
-    {/*<Renderizacion/>*/}
-     { 
-     
-       /* ++ CLASE 1 ++
-     <Encabezado/> 
-      <h3>Curso de React</h3>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      */}
-
-
-       {/*<Renderizacion/>*/}
-  
-    {/*<Props academia="Street Academy" curso="Convencerte de algo" text= "Masterclass de cachorro"  />*/}
-
-    {/*<States/>*/}
-
-     {/*<Eventos/>*/}
-
-    {/* visible ?  <CiclosDeVida/> : ""}
-    <p><button className="btn btn-primary" onClick={desmontar}>{visible ? "DESMONTAR" : "MONTAR"}</button></p>
-      */}
-
-    {/*<Calculator/>*/}
-
-    {/* <Formularios/> */}
-
-{/*     {<RenderizacionCondicional isLoggedIn={false} />} */}
-
-{/*     {<RenderizadoListas/>} Clase3 */}
-
-
-      
-
-      <Header/>
-      <Routes>  
-        <Route path='/' element={<Principal/>}/> 
-        <Route path='/mi-bk' element={<MiBK isLoggedIn={true} />}/>  {/*condicion para probar navigate*/}
-        <Route path='/categoria/:id' element={<Productos/>}/> {/*ruta dinamica para mostrar productos por categoria*/}
-        <Route path='/productos' element={<Productos/>}/> 
-        <Route path='/item/:id' element={<Item/>}/> {/*ruta dinamica para mostrar detalle del producto*/}
-      </Routes>
-      <Footer/>
-
+      </ThemeContextProvider> 
+    </CartContextProvider> 
+    
     </>
   )
 }

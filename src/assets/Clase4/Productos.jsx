@@ -17,7 +17,7 @@ if(id){
     let filtro = searchParams.get("vegan"); //obtengo el valor del parametro "vegan" desde la url
     let filtroBoolean = filtro === "true"; //convierto el valor del parametro a booleano
     productosFiltro = filtro != null ? productosJson.filter((item) => item.vegan === filtroBoolean) : productosJson; //filtro los productos por el valor del parametro "vegan"
-    console.log(productosFiltro)
+   
 }
 
 
