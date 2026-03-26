@@ -24,22 +24,31 @@ import HOC from './assets/Clase5/HOC.jsx';
 import ThemeContextProvider from './assets/Clase5/context/ThemeContext.jsx';
 import CartContextProvider, { CartContext } from './assets/Clase5/context/CartContext.jsx';
 import Carrito from './assets/Clase5/Carrito.jsx';
+import PostsList from './assets/Clase5/PostsList.jsx';
 
 function App() {
   return(
     <>
     <CartContextProvider>
       <ThemeContextProvider>
+
+
+        {/*
+        
         <Header/>
         <Routes>  
           <Route path='/' element={<Principal/>}/> 
-          <Route path='/mi-bk' element={<MiBK isLoggedIn={true} />}/>  {/*condicion para probar navigate*/}
-          <Route path='/categoria/:id' element={<Productos/>}/> {/*ruta dinamica para mostrar productos por categoria*/}
+          <Route path='/mi-bk' element={<MiBK isLoggedIn={true} />}/>  {/*condicion para probar navigate}
+          <Route path='/categoria/:id' element={<Productos/>}/> {/*ruta dinamica para mostrar productos por categoria}
           <Route path='/productos' element={<Productos/>}/> 
-          <Route path='/item/:id' element={<Item/>}/> {/*ruta dinamica para mostrar detalle del producto*/}
-          <Route path='/carrito' element={<Carrito/>}/> {/*ruta para mostrar el carrito de compras*/}
+          <Route path='/item/:id' element={<Item/>}/> {/*ruta dinamica para mostrar detalle del producto}
+          <Route path='/carrito' element={<Carrito/>}/> {/*ruta para mostrar el carrito de compras}
         </Routes>
         <Footer/>
+        
+        */}
+
+          <PostsList/>
 
       </ThemeContextProvider> 
     </CartContextProvider> 
