@@ -25,6 +25,9 @@ import ThemeContextProvider from './assets/Clase5/context/ThemeContext.jsx';
 import CartContextProvider, { CartContext } from './assets/Clase5/context/CartContext.jsx';
 import Carrito from './assets/Clase5/Carrito.jsx';
 import PostsList from './assets/Clase5/PostsList.jsx';
+import APIXML from './assets/Clase6/APIXML.jsx';
+import APIFetch from './assets/Clase6/APIFetch.jsx';
+import APIAxios from './assets/Clase6/APIAxios.jsx';
 
 function App() {
   return(
@@ -46,9 +49,14 @@ function App() {
         </Routes>
         <Footer/>
         
+            <PostsList/> /* Clase 5/
+
         */}
 
-          <PostsList/>
+    {/*   {<APIXML/>}  Clase 6 */}
+
+   {/*  {<APIFetch/>}  Clase 6 */}
+   {<APIAxios/>}
 
       </ThemeContextProvider> 
     </CartContextProvider> 
