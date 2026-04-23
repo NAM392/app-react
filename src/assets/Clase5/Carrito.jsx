@@ -1,11 +1,25 @@
 import { useContext } from "react";
 import { CartContext } from "./context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { ELIMINAR_PRODUCTO, VACIAR_CARRITO } from "../Clase7/Redux/ActionsCartReducer";
 
 const Carrito = () => {
 
-    const {cart, eliminarProducto, vaciarCarrito, sumaProductosCarrito, totalProductosCarrito} = useContext(CartContext);
+    //const {cart, eliminarProducto, vaciarCarrito, sumaProductosCarrito, totalProductosCarrito} = useContext(CartContext);
+    const cart = useSelector(state => state.cart);
+    const totalProductosCarrito = useSelector(state => state.total);
+    const sumaProductosCarrito = useSelector(state => state.suma);
+    const dispatch = useDispatch();
 
-    if(totalProductosCarrito() === 0){
+    const vaciarCarrito = () => {
+        dispatch(VACIAR_CARRITO);
+    }
+
+    const eliminarProducto = (id) => {
+        dispatch(ELIMINAR_PRODUCTO(id));
+    }
+
+    if(totalProductosCarrito === 0){
         
         return(        
             <>
@@ -52,7 +66,7 @@ const Carrito = () => {
                         }
                         <tr>
                             <td colSpan={2} >Total A Pagar</td>
-                            <td >${sumaProductosCarrito()}</td>
+                            <td >${sumaProductosCarrito}</td>
                             <td>&nbsp;</td>
                         </tr>
                     </tbody>

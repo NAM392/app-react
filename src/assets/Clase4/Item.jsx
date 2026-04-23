@@ -1,12 +1,37 @@
 import { useParams } from "react-router-dom";
-import productosJson from "./json/productos.json";
+//import productosJson from "./json/productos.json";
 import { useContext } from "react";
 import { CartContext } from "../Clase5/context/CartContext";
+import { AGREGAR_PRODUCTO } from "../Clase7/Redux/ActionsCartReducer";
+import { useDispatch, useSelector } from "react-redux";
+
+
 
 const Item = () => {
-    const {agregarProducto} = useContext(CartContext)
-    const {id} = useParams(); // obtenemos el id del producto desde la ruta dinamica
-    const producto = productosJson.find((item) => item.id === parseInt(id)); // buscamos el producto en el json usando el id
+    //const {agregarProducto} = useContext(CartContext)
+
+    // obtenemos el id del producto desde la ruta dinamica
+    const {id} = useParams(); 
+
+    // buscamos el producto en el json usando el id (CAMBIO USO REDUX)
+    //const producto = productosJson.find((item) => item.id === parseInt(id)); 
+   
+   // obtenemos el array de productos desde el estado global de Redux
+    const productos = useSelector(state => state.products); 
+    const producto = productos.find(item => item.id == id) // buscamos el producto en el array usando el id
+   
+    // obtenemos la funcion dispatch para enviar acciones a Redux
+   const dispatch = useDispatch(); 
+   
+   
+   
+   const agregarProducto = (id) => {
+        dispatch(AGREGAR_PRODUCTO(id));
+    }
+   
+   
+   
+   
     return(
         <>
             <div className="container">
