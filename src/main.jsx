@@ -27,6 +27,7 @@ const miMiddleware = store => next => action => {
   next(action);
 }
 
+//const store = createStore(CounterReducer, applyMiddleware(miMiddleware)); // Clase 8
 const store = createStore(CartReducer, applyMiddleware(miMiddleware));
 
 createRoot(document.getElementById('root')).render(
