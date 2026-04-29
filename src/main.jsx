@@ -7,8 +7,8 @@ import App from './App.jsx'
 
 import { Provider } from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
-/* import CartReducer from './assets/Clase7/Redux/CartReducer.jsx'; CLASE 7  */
-import CounterReducer from './assets/Clase8/Redux/CounterReducer.jsx';
+import CartReducer from './assets/Clase7/Redux/CartReducer.jsx';
+/* import CounterReducer from './assets/Clase8/Redux/CounterReducer.jsx'; */
 /* const store = createStore(CartReducer); Clase 7*/
 //const store = createStore(CounterReducer);
 
@@ -27,7 +27,7 @@ const miMiddleware = store => next => action => {
   next(action);
 }
 
-const store = createStore(CounterReducer, applyMiddleware(miMiddleware));
+const store = createStore(CartReducer, applyMiddleware(miMiddleware));
 
 createRoot(document.getElementById('root')).render(
 

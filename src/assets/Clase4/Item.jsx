@@ -18,7 +18,7 @@ const Item = () => {
    
    // obtenemos el array de productos desde el estado global de Redux
     const productos = useSelector(state => state.products); 
-    const producto = productos.find(item => item.id == id) // buscamos el producto en el array usando el id
+    const producto = productos ? productos.find(item => item.id === Number(id)) : undefined; // buscamos el producto en el array usando el id
    
     // obtenemos la funcion dispatch para enviar acciones a Redux
    const dispatch = useDispatch(); 
@@ -32,6 +32,16 @@ const Item = () => {
    
    
    
+    if (!productos) return (
+        <>
+            <div className="container"><p>Cargando...</p></div>
+        </>
+    );
+    if (!producto) return (
+        <>
+            <div className="container"><p>Producto no encontrado</p></div>
+        </>
+    );
     return(
         <>
             <div className="container">
