@@ -30,38 +30,32 @@ import APIFetch from './assets/Clase6/APIFetch.jsx';
 import APIAxios from './assets/Clase6/APIAxios.jsx';
 import Contador from './assets/Clase7/Contador.jsx';
 import Tareas from './assets/Clase7/Tareas.jsx';
+import Contador2 from './assets/Clase8/Contador2.jsx';
 
 function App() {
   return(
     <>
     <CartContextProvider>
-      <ThemeContextProvider>
-
-
-       
-        
+      <ThemeContextProvider>     
         <Header/>
         <Routes>  
-          <Route path='/' element={<Principal/>}/> 
+          <Route path='/' element={<Principal/>}/>  
           <Route path='/mi-bk' element={<MiBK isLoggedIn={true} />}/>  {/*condicion para probar navigate*/}
           <Route path='/categoria/:id' element={<Productos/>}/> {/*ruta dinamica para mostrar productos por categoria*/}
           <Route path='/productos' element={<Productos/>}/> 
           <Route path='/item/:id' element={<Item/>}/> {/*ruta dinamica para mostrar detalle del producto*/}
           <Route path='/carrito' element={<Carrito/>}/> {/*ruta para mostrar el carrito de compras*/}
-        </Routes>
+       </Routes>
         <Footer/>
         
-           {/*  <PostsList/> /* Clase 5/
-
-        */}
-
+        {/*  <PostsList/> /* Clase 5/ */}
         {/*   {<APIXML/>}  Clase 6 */}
-
         {/*  {<APIFetch/>}  Clase 6 */}
         {/*    {<APIAxios/>} CLase 6 */}
-
         {/* {<Contador/>  } Clase 7 */}
         {/* {<Tareas/>} Clase 7 */}
+        {/*  <Contador2/>      */}
+
 
       </ThemeContextProvider> 
     </CartContextProvider> 

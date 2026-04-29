@@ -6,9 +6,28 @@ import './index.css'
 import App from './App.jsx'
 
 import { Provider } from 'react-redux';
-import {createStore} from 'redux';
-import CartReducer from './assets/Clase7/Redux/CartReducer.jsx';
-const store = createStore(CartReducer);
+import {applyMiddleware, createStore} from 'redux';
+/* import CartReducer from './assets/Clase7/Redux/CartReducer.jsx'; CLASE 7  */
+import CounterReducer from './assets/Clase8/Redux/CounterReducer.jsx';
+/* const store = createStore(CartReducer); Clase 7*/
+//const store = createStore(CounterReducer);
+
+
+const miMiddleware = store => next => action => {
+  console.log(store.getState());
+  console.log(action.type);
+
+  if(action.type === 'INCREMENTAR_ITEM'){
+    console.log('Se ha incrementado el contador');
+  }
+
+  if(action.type === 'DECREMENTAR_ITEM'){
+    console.warn('Se ha decrementado el contador');
+  }
+  next(action);
+}
+
+const store = createStore(CounterReducer, applyMiddleware(miMiddleware));
 
 createRoot(document.getElementById('root')).render(
 
