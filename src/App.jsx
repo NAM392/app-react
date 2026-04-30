@@ -31,6 +31,8 @@ import APIAxios from './assets/Clase6/APIAxios.jsx';
 import Contador from './assets/Clase7/Contador.jsx';
 import Tareas from './assets/Clase7/Tareas.jsx';
 import Contador2 from './assets/Clase8/Contador2.jsx';
+import Checkout from './assets/Clase8/Checkout.jsx';
+import Orders from './assets/Clase8/Orders.jsx';
 
 function App() {
   return(
@@ -45,6 +47,8 @@ function App() {
           <Route path='/productos' element={<Productos/>}/> 
           <Route path='/item/:id' element={<Item/>}/> {/*ruta dinamica para mostrar detalle del producto*/}
           <Route path='/carrito' element={<Carrito/>}/> {/*ruta para mostrar el carrito de compras*/}
+           <Route path='/checkout' element={<Checkout/>}/> {/*ruta para mostrar finalizar compra*/}
+            <Route path='/ordenes' element={<Orders/>}/> {/*ruta para mostrar lo que se envia*/}
        </Routes>
         <Footer/>
         

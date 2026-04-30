@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { CartContext } from "./context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
-import { ELIMINAR_PRODUCTO, VACIAR_CARRITO } from "../Clase7/Redux/ActionsCartReducer";
+import { DECREMENTAR_ITEM, ELIMINAR_PRODUCTO, INCREMENTAR_ITEM, VACIAR_CARRITO } from "../Clase7/Redux/ActionsCartReducer";
+import ErrorCarrito from "../Clase8/ErrorCarrito";
+import { Link } from "react-router-dom";
 
 const Carrito = () => {
 
@@ -19,20 +21,22 @@ const Carrito = () => {
         dispatch(ELIMINAR_PRODUCTO(id));
     }
 
+    const incrementarItem = (id) => {
+        dispatch(INCREMENTAR_ITEM(id));
+    }
+
+    const decrementarItem = (id) => {
+        dispatch(DECREMENTAR_ITEM(id));
+    }
+
     if(totalProductosCarrito === 0){
         
-        return(        
+        return(
             <>
-
-                <div className="container my-5">
-                    <div className="row">
-                        <div className="col text-center p-5">
-                            <h1 className="colorBK">Tu carrito esta vacío</h1>
-                        </div>
-                    </div>
-                </div>
-
-            </>);
+            <ErrorCarrito/>
+            </>
+        )
+        
     }  
    return(
     <>
@@ -42,7 +46,7 @@ const Carrito = () => {
                 <table className="table" >
                     <tbody>
                         <tr>
-                            <td colSpan={4} className="text-end" ><button className="btn btn-danger" 
+                            <td colSpan={6} className="text-end" ><button className="btn btn-danger" 
                                         onClick={() => vaciarCarrito()}>                                            
                                             Vaciar Carrito
                                         </button></td>
@@ -53,6 +57,12 @@ const Carrito = () => {
                                     <td className="align-middle" ><img src={item.imagen} alt={item.nombre} width="50"/></td>
                                     <td className="align-middle">{item.nombre}</td>
                                     <td className="align-middle">${item.precio}</td>
+                                    <td className="align-middle">
+                                        <button className="btn btn-danger btn-sm mx-1" onClick={() => decrementarItem(item.id)}>-</button>
+                                        <span>x{item.cantidad}</span>
+                                        <button className="btn btn-danger btn-sm mx-1" onClick={() => incrementarItem(item.id)}>+</button>
+                                    </td>
+                                    <td className="align-middle">${item.precio * item.cantidad}</td>
                                     <td className="align-middle text-end">
                                         <button className="btn btn-danger" 
                                         onClick={() => eliminarProducto(item.id)}>                                            
@@ -65,9 +75,9 @@ const Carrito = () => {
 
                         }
                         <tr>
-                            <td colSpan={2} >Total A Pagar</td>
+                            <td colSpan={4} >Total A Pagar</td>
                             <td >${sumaProductosCarrito}</td>
-                            <td>&nbsp;</td>
+                            <td className="text-end" ><Link to={"/checkout"} className="btn btn-primary btn-sm mx-1" >Checkout</Link></td>
                         </tr>
                     </tbody>
                 </table>

@@ -19,7 +19,7 @@ const CartWidget = () => {
     // Leer desde el store de Redux para que el widget refleje acciones despachadas por otros componentes
     const total = useSelector(state => {
         if (!state) return 0;
-        return Array.isArray(state.cart) ? state.cart.length : (state.total ?? 0);
+        return  state.total ?? 0;
     });
 
     return (
